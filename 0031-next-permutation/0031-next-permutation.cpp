@@ -1,16 +1,17 @@
 class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
-              int n = nums.size();
 
-        // Step 1: Find the break point
+        int n = nums.size();
+
+        // 1. Find breakpoint
         int i = n - 2;
 
         while (i >= 0 && nums[i] >= nums[i + 1]) {
             i--;
         }
 
-        // Step 2: If break point exists
+        // 2. Find the smallest element greater than nums[i]
         if (i >= 0) {
 
             int j = n - 1;
@@ -22,7 +23,7 @@ public:
             swap(nums[i], nums[j]);
         }
 
-        // Step 3: Reverse the suffix
+        // 3. Reverse the suffix
         reverse(nums.begin() + i + 1, nums.end());
     }
 };
